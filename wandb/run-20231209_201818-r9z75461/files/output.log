@@ -1,0 +1,24 @@
+  0%|                                                                                                                                                                                                                                  | 0/80 [00:00<?, ?it/s]You're using a LlamaTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+Using pad_token, but it is not set yet.
+Traceback (most recent call last):
+  File "/home/jzl6599/kaggle_LLM/main.py", line 124, in <module>
+    trainer.train()
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/transformers/trainer.py", line 1591, in train
+    return inner_training_loop(
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/transformers/trainer.py", line 1870, in _inner_training_loop
+    for step, inputs in enumerate(epoch_iterator):
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/accelerate/data_loader.py", line 384, in __iter__
+    current_batch = next(dataloader_iter)
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 674, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/torch/utils/data/_utils/fetch.py", line 54, in fetch
+    return self.collate_fn(data)
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/transformers/data/data_collator.py", line 249, in __call__
+    batch = self.tokenizer.pad(
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 3263, in pad
+    padding_strategy, _, max_length, _ = self._get_padding_truncation_strategies(
+  File "/home/jzl6599/.conda/envs/llm/lib/python3.9/site-packages/transformers/tokenization_utils_base.py", line 2711, in _get_padding_truncation_strategies
+    raise ValueError(
+ValueError: Asking to pad but the tokenizer does not have a padding token. Please select a token to use as `pad_token` `(tokenizer.pad_token = tokenizer.eos_token e.g.)` or add a new pad token via `tokenizer.add_special_tokens({'pad_token': '[PAD]'})`.
